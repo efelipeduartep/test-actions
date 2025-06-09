@@ -1,4 +1,4 @@
-name: workflow-dispatch
+name: testing-workflow
 on: workflow_dispatch
 jobs:
   my-job:
