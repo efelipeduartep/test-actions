@@ -1,5 +1,34 @@
 name: testing-workflow
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      instance_name:
+        description: EC2 instance name tag
+        required: true
+        type: string
+
+      disk_size:
+        description: Storage size of the EC2 instance
+        required: true
+        type: string
+
+      client_name:
+        description: Name of the client you are responding with. This is also the tenant on where you will upload the private key.
+        required: true
+        type: choice
+        options:
+          - W88
+          - GML
+          - Open
+          - HF
+
+      retention_period:
+        description:
+          "How many days the instance needs to run? Just input number E.G 7
+          for 7days "
+        required: true
+        type: number
+
 jobs:
   my-job:
     runs-on: ubuntu-latest
